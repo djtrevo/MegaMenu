@@ -1,0 +1,115 @@
+/**********************************************************/
+/******************   TrEVo Menu Style    *****************/
+/**********************************************************/
+
+div.lvl2 {
+    display:none;
+    background-color:#f2f2f2;
+    position:absolute;
+    z-index:1000;
+    color:#7b7e86;
+    border:2px solid #fff;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    -webkit-box-shadow: 0 0 2px #6C6C6C;
+    -moz-box-shadow: 0 0 2px #6C6C6C;
+    box-shadow: 0 0 2px #6C6C6C;
+}
+
+.col_1 {
+	float:left;
+	width:187px;
+	height:auto;
+    padding:20px 0 20px 30px;
+	min-height:200px;
+	text-align:left;
+	line-height:18px;
+}
+
+.col_1 ul {
+	width:100%;
+	height:auto;
+	min-height:30px;
+	text-align:left;
+	line-height:18px;
+	margin-bottom:10px;
+}
+
+.col_1 h1 {
+    color: #1B429A;
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+
+.col_1 li {
+	color: #7b7e86;
+	font-size: 13px;
+	line-height:18px;
+}
+
+
+.col_1 a {
+	color: #7B7E86;
+	font-size: 13px;
+	line-height:18px;
+}
+
+.col_1 a:hover {
+	color: #1b429a;
+	font-size: 13px;
+	line-height:18px;
+}
+
+div .lvl2_small {
+    display:none;
+    background-color:#f2f2f2;
+    position:absolute;
+    z-index:1000;
+    color:#7b7e86;
+    border:2px solid #fff;
+    border-right:1px solid #fff;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    -webkit-box-shadow: 0 0 2px #6C6C6C;
+    -moz-box-shadow: 0 0 2px #6C6C6C;
+    box-shadow: 0 0 2px #6C6C6C;
+}
+
+.col_1_small {
+	float:left;
+	width:137px;
+	height:auto;
+    padding:15px 0 18px 25px;
+	text-align:left;
+	line-height:18px;
+	border-right:1px solid #fff;
+	border-left:1px solid #ECECEC;
+}
+
+.col_1_small ul {
+	width:100%;
+	height:auto;
+	min-height:30px;
+	text-align:left;
+	line-height:20px;
+}
+
+.col_1_small h1 {
+    color: #1B429A;
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+
+.col_1_small a {
+	color: #7B7E86;
+	font-size: 13px;
+	line-height:18px;
+}
+
+.col_1_small a:hover {
+	color: #1b429a;
+	font-size: 13px;
+	line-height:18px;
+}
