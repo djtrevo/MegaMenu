@@ -1,82 +1,94 @@
-/*!
- * jQuery TrEVo MegaMenu v1.1
+/*
+ * jQuery TrEVo MegaMenu v0.2 aplha
  * https://github.com/djtrevo/MegaMenu
  *
- * Copyright 2012, Marco Trevisani
+ * Copyright 2013, Marco Trevisani
+ * * * * * * * * * * * * * * * * * * * * * *
+ *
+ * Official Website: http://www.marcotrevisani.com
+ * Music Website: http://www.djtrevo.com
+ *
+ * * * * * * * * * * * * * * * * * * * * * * 
  * Dual licensed under the MIT or GPL Version 2 licenses.
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.opensource.org/licenses/GPL-2.0
  */ (function ($) {
-    $.fn.trevoMenu = function (options) {
+     $.fn.trevoMegaMenu = function (options) {
 
-        var defaults = {
-            type: "hover",
-            fadeIn: 200,
-            fadeOut: 200
-        };
+         var defaults = {
+             type: "hover",
+             fadeIn: 200,
+             fadeOut: 200
+         };
 
-        var options = $.extend(defaults, options);
+         var options = $.extend(defaults, options);
 
-        return this.each(function () {
-            $(this).find("li.lvl1 a").each(function () {
-                var oggetto = $(this);
+         return this.each(function () {
+             $(this).find("li.lvl1 a").each(function () {
 
-                if ((options.type == "click") || ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i)))) {
-                    // -- ON MOUSE CLICK OR iPHONE/iPAD/iPOD ---
-                    $(this).click(function () {
-                        subMenu = $(this).parent().find(".lvl2");
-                        if (subMenu.is(":visible")) {
-                            $(this).parent().find(".lvl2").fadeOut(options.fadeOut);
-                        } else {
-                            $(this).parent().find(".lvl2").fadeIn(options.fadeIn);
-                            if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
-                                $(this).parent().find(".lvl2").bind('touchstart click', function () {
-                                    $(this).fadeOut(options.fadeOut)
-                                })
-                            }
-                        }
-                    });
-                } else {
-                    // -- HOVER ---
-                    $(this).hover(
-                    //. lvl1 mouseenter
-                    function () {
-                        // Show the Lvl2 SubMenu
-                        $(this).parent().find(".lvl2").fadeIn(options.fadeIn);
+                 if ((options.type == "click") || ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i)))) {
+                     // -- ON MOUSE CLICK OR iPHONE/iPAD/iPOD ---
+                     $(this).click(function () {
+                         subMenu = $(this).parent().find(".lvl2");
+                         if (subMenu.is(":visible")) {
+                             $(this).parent().find(".lvl2").fadeOut(options.fadeOut);
+                         } else {
+                             $(this).parent().find(".lvl2").fadeIn(options.fadeIn);
+                             if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {
+                                 $(this).parent().find(".lvl2").bind('touchstart click', function () {
+                                     $(this).fadeOut(options.fadeOut)
+                                 })
+                             }
+                         }
+                     });
+                 } else {
+                     // -- HOVER ---
+                     $(this).hover(
+                     //. lvl1 mouseenter
+                     function () {
+                         // Disable click on lvl1 <a> element
+                         var lvl2Element = $(this).parent().find(".lvl2");
+                         if (lvl2Element[0]) {
+                             $(this).click(function () {
+                                 return false
+                             })
+                         };
+                         // Show the Lvl2 SubMenu
+                         lvl2Element.fadeIn(options.fadeIn);
 
-                        // Set lvl2 SubMenu Hover
-                        $(this).parent().find(".lvl2").hover(
-                        //. lvl2 mouseenter
-                        function () {
-                            // Stop SubMenu Hide Timer
-                            clearTimeout(trvTimer);
-                        },
-                        //. lvl2 mouseleave
-                        function () {
-                            // Start fadeOut Timer
-                            var e = $(this);
-                            setTimeout(function () {
-                                if (!e.parent().children("a").ismouseover()) {
-                                    e.fadeOut(options.fadeOut);
-                                }
-                            }, 100);
-                        })
-                    },
-                    //. lvl1 mouseleave
-                    function () {
-                        $(this).parent().children(".lvl2").each(function () {
-                            var e = $(this);
-                            trvTimer = setTimeout(function () {
-                                e.fadeOut(options.fadeOut);
-                            }, 100);
-                        })
-                    });
+                         // Set lvl2 SubMenu Hover
+                         $(this).parent().find(".lvl2").hover(
+                         // .lvl2 mouseenter
+                         function () {
+                             // Stop SubMenu Hide Timer
+                             clearTimeout(trvTimer);
+                         },
+                         //. lvl2 mouseleave
+                         function () {
+                             // Start fadeOut Timer
+                             var e = $(this);
+                             setTimeout(function () {
+                                 if (!e.parent().children("a").ismouseover()) {
+                                     e.fadeOut(options.fadeOut);
+                                 }
+                             }, 100);
+                         })
+                     },
+                     //. lvl1 mouseleave
+                     function () {
+                         $(this).parent().children(".lvl2").each(function () {
+                             var e = $(this);
+                             trvTimer = setTimeout(function () {
+                                 e.fadeOut(options.fadeOut);
+                             }, 100);
+                         })
+                     });
 
-                }
-            })
-        });
-    };
-})(jQuery);
+                 }
+             })
+         });
+     };
+ })(jQuery);
 
 //jQuery ismouseover method
 (function ($) {
